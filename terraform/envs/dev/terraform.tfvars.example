@@ -1,0 +1,21 @@
+# Copy to terraform.tfvars (git-ignored) and adjust.
+project_id    = "my-gcp-project-id"
+region        = "europe-west1"
+environment   = "dev"
+name          = "evp"
+delivery_mode = "pubsub_push"
+
+# Optional CMEK for the data buckets (key must live in var.region).
+# kms_key_name = "projects/my-gcp-project-id/locations/europe-west1/keyRings/data/cryptoKeys/evp"
+
+max_delivery_attempts    = 5
+function_timeout_seconds = 300
+function_memory          = "512Mi"
+min_instances            = 0
+max_instances            = 10
+
+alert_emails = ["oncall@example.com"]
+
+# Budget is created only when a billing account is provided.
+# billing_account = "000000-000000-000000"
+monthly_budget = 25

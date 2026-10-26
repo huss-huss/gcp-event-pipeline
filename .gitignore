@@ -32,3 +32,5 @@ htmlcov/
 .DS_Store
 .idea/
 .vscode/
+# Lock files are committed for root configurations only.
+terraform/modules/**/.terraform.lock.hcl
