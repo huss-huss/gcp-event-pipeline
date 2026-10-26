@@ -1,0 +1,7 @@
+# Mirrors the exclusions applied by Terraform's archive_file.
+tests/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+pyproject.toml
+requirements-dev.txt
