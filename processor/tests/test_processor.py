@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from dataclasses import replace
 from datetime import UTC, datetime, timedelta, timezone
+from pathlib import Path
 
 import pytest
 
@@ -189,3 +190,12 @@ def test_large_file_is_streamed(processor, store, upload):
     assert store.trace.count("write") > 5
     curated = store.get(CURATED_BUCKET, output_paths(ref, processor._settings).curated)
     assert curated.count(b"\n") == n
+
+
+def test_example_file_from_readme(processor, store, upload):
+    sample = Path(__file__).resolve().parents[2] / "examples" / "orders-2026-10-26.jsonl"
+    ref = upload("incoming/orders-2026-10-26.jsonl", sample.read_bytes())
+    result = processor.process(ref)
+    assert (result.valid, result.invalid) == (2, 3)
+    reasons = [q["reason"] for q in read_jsonl(store, output_paths(ref, processor._settings).quarantine)]
+    assert reasons == ["schema_validation", "schema_validation", "invalid_json"]

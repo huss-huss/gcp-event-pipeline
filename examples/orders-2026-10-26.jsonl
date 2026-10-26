@@ -1,0 +1,6 @@
+{"event_id":"evt-0001","event_type":"order_created","order_id":"ord-1001","customer_id":"cus-42","occurred_at":"2026-10-26T07:58:12Z","currency":"usd","items":[{"sku":"BOOK-001","quantity":2,"unit_price":"12.50"},{"sku":"PEN-007","quantity":3,"unit_price":"1.20"}],"total_amount":"28.60"}
+{"event_id":"evt-0002","event_type":"order_updated","order_id":"ord-1001","customer_id":"cus-42","occurred_at":"2026-10-26T09:05:00+03:00","currency":"USD","items":[{"sku":"BOOK-001","quantity":1,"unit_price":"12.50"}]}
+{"event_id":"evt-0003","event_type":"order_cancelled","order_id":"ord-1002","customer_id":"cus-7","occurred_at":"2026-10-26T08:10:00Z","currency":"EUR","items":[{"sku":"MUG-003","quantity":1,"unit_price":"8.00"}],"total_amount":"9.00"}
+{"event_id":"evt-0004","event_type":"order_shipped","order_id":"ord-1003","customer_id":"cus-9","occurred_at":"2026-10-26T08:11:00Z","currency":"EUR","items":[{"sku":"MUG-003","quantity":1,"unit_price":"8.00"}]}
+
+{"event_id":"evt-0005","order_id":"ord-1004"
